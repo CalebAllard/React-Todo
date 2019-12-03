@@ -17,7 +17,7 @@ class TodoList extends React.Component{
             <>
                {this.props.data.map((item, index) => {
                    
-                    return (<ToDo itemTask={item.task} completed={item.completed} key={item.id} togleComplteted={this.props.togleComplpleted} index={index}/>
+                    return (<ToDo itemTask={item.task} completed={item.completed} key={item.id} index={index} togleDone={this.props.togleDone}/>
                     );
                 })}
 

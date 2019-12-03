@@ -13,12 +13,19 @@ class App extends React.Component {
 
     
   }
-    tolgeCompleted = index => {
+    togleDone = (index) => {
+      console.log(index);
       if(!this.state.tasks[index].completed){
-        this.setState({tasks:[index].completed = 'true'});
+        let temp = this.state.tasks[index];
+        temp.completed = true;
+        this.setState(this.state.tasks[index] = temp);
       }else{
-        this.setState({tasks:[index].completed = 'true'});
+        let temp = this.state.tasks[index];
+        temp.completed = false;
+        this.setState(this.state.tasks[index] = temp);
+        
       }
+      console.log(this.state.tasks);
     };
   
     handleSubmit = e => {
@@ -46,7 +53,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.controleForm}/>
-        <TodoList data={this.state.tasks} togleCompleted={this.tolgeCompleted} />
+        <TodoList data={this.state.tasks} togleDone={this.togleDone} />
       </div>
     );
   }
