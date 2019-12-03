@@ -15,6 +15,7 @@ class ToDoForm extends React.Component{
                     </label>
                     <button>add Item</button>
                 </form>
+                <button onClick={this.props.removeCompleted}>Remove Completed</button>
 
                 </>
             );

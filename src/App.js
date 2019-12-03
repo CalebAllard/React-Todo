@@ -27,6 +27,18 @@ class App extends React.Component {
       }
       console.log(this.state.tasks);
     };
+
+    removeCompleted = () => {
+      let temp = this.state.tasks;
+      // console.log(temp)
+      this.setState(this.state.tasks = temp.filter((item) => {    
+            return item.completed == false;
+    }));
+        
+
+        
+      
+    };
   
     handleSubmit = e => {
         e.preventDefault();
@@ -52,7 +64,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.controleForm}/>
+        <TodoForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.controleForm} removeCompleted={this.removeCompleted} />
         <TodoList data={this.state.tasks} togleDone={this.togleDone} />
       </div>
     );
